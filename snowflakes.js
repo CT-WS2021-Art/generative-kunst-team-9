@@ -1,21 +1,20 @@
 let snowflakes = []; // array to hold snowflake objects
 let bg, maskshape;
 
-
 function setup() {
   bg = loadImage('images/snowglobe.png')
   maskshape = loadImage('images/Subtract.png')
   createCanvas(814, 967);
-  for (let i=0; i<210; i++) {
-    snowflakes.push({x: random(0, width), y: random(0,30), d: random(2,6)}) // append snowflake objects
+  for (let i=0; i<400; i++) {
+    snowflakes.push({x: random(0, width), y: random(-600,30), d: random(2,6)}) // append snowflake objects 
   }
+  noStroke();
 }
-
 
 function draw() {
   
   background(bg);
-  for (let i=0; i<210; i++) {
+  for (let i=0; i<400; i++) {
     let snowflake = snowflakes[i]
     snowflake.y += random(1, 5)
     if(snowflake.y> 540) {
