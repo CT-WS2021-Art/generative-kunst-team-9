@@ -1,6 +1,6 @@
 let snowflakes = []; // array to hold snowflake objects
 let bg, maskshape; // declare images
-let isMousePressed = false;
+//let isMousePressed = false;
 let stage = 'init'; // init, shake, fall, fallslow
 
 let fakeTimer = 1;
@@ -19,26 +19,47 @@ function setup() {
 
 
 function draw() {
-  background(bg);
-  if(isMousePressed) {
-    if(stage =='init') {
-      //shake
-      fakeTimer++;
-      console.log('t');
-      if(fakeTimer > 600) {
-        stage = 'fall';
-      }
-    }
-    if(stage =='fall') {
-      oneFallDownStep();
-    }
+  //background(bg);
+  shake(); // muss bleiben
+  image(bg, 0, 0); // muss auch bleiben lol
+  if(mouseIsPressed == true){
+    console.log(fakeTimer)
+    //translate(random(-5,5),random(-5,5));
+    fakeTimer++;
+    if(fakeTimer > 150) {
+      stage = 'fall';
+  }
+}
+  if(stage =='fall') {
+    oneFallDownStep();
   }
 }
 
-function mousePressed() {
-  console.log('x');
-  isMousePressed = true;
+function shake() {
+  image(bg, 0, 0);
+  if(mouseIsPressed == true){
+    translate(random(-5,5),random(-5,5));
+  }
 }
+
+  //if(isMousePressed) {
+    //if(stage =='init') {
+      //fakeTimer++;
+      //console.log('t');
+      //if(fakeTimer > 600) {
+        //stage = 'fall';
+      //}
+    //}
+    //if(stage =='fall') {
+      //oneFallDownStep();
+    //}
+  //}
+//}
+
+//function mousePressed() {
+  //console.log('x');
+  //isMousePressed = true;
+//}
 
 function oneFallDownStep() {
   for (let i=0; i<400; i++) {
@@ -54,4 +75,3 @@ function oneFallDownStep() {
 }
 
 //function shake() {
-  
