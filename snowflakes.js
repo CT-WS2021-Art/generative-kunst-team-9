@@ -1,6 +1,5 @@
 let snowflakes = []; // array to hold snowflake objects
 let bg, maskshape; // declare images
-//let isMousePressed = false;
 let stage = 'init'; // init, shake, fall, fallslow
 
 let fakeTimer = 1;
@@ -26,7 +25,7 @@ function draw() {
     console.log(fakeTimer)
     //translate(random(-5,5),random(-5,5));
     fakeTimer++;
-    if(fakeTimer > 150) {
+    if(fakeTimer > 70) {
       stage = 'fall';
   }
 }
@@ -42,25 +41,6 @@ function shake() {
   }
 }
 
-  //if(isMousePressed) {
-    //if(stage =='init') {
-      //fakeTimer++;
-      //console.log('t');
-      //if(fakeTimer > 600) {
-        //stage = 'fall';
-      //}
-    //}
-    //if(stage =='fall') {
-      //oneFallDownStep();
-    //}
-  //}
-//}
-
-//function mousePressed() {
-  //console.log('x');
-  //isMousePressed = true;
-//}
-
 function oneFallDownStep() {
   for (let i=0; i<400; i++) {
     let snowflake = snowflakes[i]
@@ -73,5 +53,3 @@ function oneFallDownStep() {
   }
   image(maskshape, 0, 0); // Top-left corner of the img is at (0, 0)
 }
-
-//function shake() {
